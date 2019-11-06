@@ -7,7 +7,8 @@ echo -e "\e[92m[2]\e[96m Installing Python 3.8, this will take a while...\e[0m"
 sudo apt-get install build-essential checkinstall libreadline-gplv2-dev libncursesw5-dev libssl-dev \
     libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
 cd /opt
-[-f "/opt/Python-3.8.0.tgz"] && sudo rm -rf Python-3*
+
+[-f /opt/Python-3.8.0.tgz] && sudo rm -rf Python-3*
 sudo wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tgz
 sudo tar xzf Python-3.8.0.tgz
 cd Python-3.8.0
@@ -34,7 +35,7 @@ sudo echo '## enable xcfe launch in WSL
 export DISPLAY=:0
 export XDG_RUNTIME_DIR=~/runtime
 export RUNLEVEL=3
-LANG="en_US.utf8"' >> /root/.bashrc
+LANG="pt_PT.utf8"' >> /root/.bashrc
 
 echo -e "\e[92m[+]\e[96m Getting some more scripts\e[0m"
 wget --no-hsts -O ~/start-xfce https://raw.githubusercontent.com/PJCAfonso/atec-formacao/master/X_Kali_wsl/start-xfce
@@ -45,13 +46,13 @@ sudo cp ~/.xinitrc start-xfce /root/
 sudo chown root:root /root/.xinitrc /root/start-xfce
 sudo chmod 755 /root/.xinitrc /root/start-xfce
 sudo ln -s /root/.xinitrc /root/.xsession
+
 echo -e "\e[92m[+]\e[96m Changing default panel settings for xfce\e[0m"
-sudo wget --no-hsts -O /etc/xdg/xfce4/panel/default.xml https://raw.githubusercontent.com/PJCAfonso/atec-formacao/master/X_Kali_wsl/default.html
-sudo wget --no-hsts -O /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml https://raw.githubusercontent.com/PJCAfonso/atec-formacao/master/X_Kali_wsl/xfce4-session.html
+sudo wget --no-hsts -O /etc/xdg/xfce4/panel/default.xml https://raw.githubusercontent.com/PJCAfonso/atec-formacao/master/X_Kali_wsl/default.xml
+sudo wget --no-hsts -O /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml https://raw.githubusercontent.com/PJCAfonso/atec-formacao/master/X_Kali_wsl/xfce4-session.xml
 
-
-[!-d "/etc/xdg/disabled-autostart"] && sudo mkdir /etc/xdg/disabled-autostart
-[-d "/etc/xdg/autostart/"] && sudo mv /etc/xdg/autostart/nm-applet.desktop /etc/xdg/autostart/disabled-autostart/
+[!-d /etc/xdg/disabled-autostart ] && sudo mkdir /etc/xdg/disabled-autostart
+[-f /etc/xdg/autostart/nm-applet.desktop ] && sudo mv /etc/xdg/autostart/nm-applet.desktop /etc/xdg/autostart/disabled-autostart/
 echo
 echo
 echo -e "\e[92m[*]\e[96m This part of the installation is completed. \e[92mOnly one more thing to do:\e[0m"
