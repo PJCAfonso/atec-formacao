@@ -1,8 +1,21 @@
 #!/bin/bash
-echo -e "\e[92m[+]\e[96m Installing XFCE4, this will take a while\e[0m"
+echo -e "\e[92m[+]\e[96m Update and Upgrade for last version of Kali, wait please...\e[0m"
 sudo apt update
 sudo apt full-upgrade -y
-sudo apt install -y kali-desktop-xfce xorg xrdp compton
+echo -e "\e[92m[+]\e[96m Installing Python 3.8, this will take a while...\e[0m"
+sudo apt-get install build-essential checkinstall libreadline-gplv2-dev libncursesw5-dev libssl-dev \
+    libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
+cd /opt
+sudo wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tgz
+sudo tar xzf Python-3.8.0.tgz
+cd Python-3.8.0
+sudo ./configure --enable-optimizations
+sudo make install
+cd /opt
+sudo rm -f Python-3.8.0.tgz
+
+echo -e "\e[92m[+]\e[96m Installing XFCE4, this will take a while, don't killed yourself!!! ;)\e[0m"
+sudo apt install -y kali-desktop-xfce xorg xrdp compton git 
 echo -e "\e[92m[+]\e[96m Configuring XRDP to listen on port 3390 (but not starting the service)...\e[0m"
 sudo sed -i 's/port=3389/port=3390/g' /etc/xrdp/xrdp.ini
 echo -e "\e[92m[+]\e[96m Adding some settings to ~./bashrc\e[0m"
