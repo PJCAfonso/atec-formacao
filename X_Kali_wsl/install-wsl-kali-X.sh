@@ -8,7 +8,7 @@ sudo apt-get install build-essential checkinstall libreadline-gplv2-dev libncurs
     libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
 cd /opt
 
-[-f /opt/Python-3.8.0.tgz] && sudo rm -rf Python-3*
+[ -f /opt/Python-3.8.0.tgz ] && sudo rm -rf /opt/Python-3*
 sudo wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tgz
 sudo tar xzf Python-3.8.0.tgz
 cd Python-3.8.0
