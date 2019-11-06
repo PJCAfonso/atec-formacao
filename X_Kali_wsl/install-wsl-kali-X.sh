@@ -52,7 +52,7 @@ sudo wget --no-hsts -O /etc/xdg/xfce4/panel/default.xml https://raw.githubuserco
 sudo wget --no-hsts -O /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/xfce4-session.xml https://raw.githubusercontent.com/PJCAfonso/atec-formacao/master/X_Kali_wsl/xfce4-session.xml
 
 [ ! -d /etc/xdg/disabled-autostart ] && sudo mkdir /etc/xdg/disabled-autostart
-[ -f /etc/xdg/autostart/nm-applet.desktop ] && sudo mv /etc/xdg/autostart/nm-applet.desktop /etc/xdg/autostart/disabled-autostart/
+[ -f /etc/xdg/autostart/nm-applet.desktop ] && sudo mv /etc/xdg/autostart/nm-applet.desktop /etc/xdg/autostart/disabled-autostart/.
 echo
 echo
 echo -e "\e[92m[*]\e[96m This part of the installation is completed. \e[92mOnly one more thing to do:\e[0m"
